@@ -1,0 +1,44 @@
+# -*- coding: utf-8 -*-
+"""
+Spyder Editor
+
+This is a temporary script file.
+"""
+
+
+import numpy as np
+print("Insert row value")
+r=int(input())
+print("\nInsert column value")
+c=int(input())
+#define the length of the triangule as the row requested
+n=r
+#correction of the values to obtain the requested ones
+r=r-1
+c=c-1
+print("\nThe pascal's triangule:")
+#define the array to store the values
+arr = [[0 for x in range(n)]
+           for y in range(n)]
+#itiration on every line and print the values    
+for row in range(0,n):
+    #every line has a number of values that are the equal to the row number
+    for i in range(0, row+1):
+        #definition of the first and last value are always 1
+        if(i == 0 or i == row):
+                arr[row][i]=1
+                print(arr[row][i], end = " ")
+        #the values are the sum of the values above and left of above    
+        else:
+            arr[row][i] = (arr[row-1][i -1] + 
+                                arr[row-1][i])
+            print(arr[row][i], end=" ")
+    print("\n", end = " ")
+#convert list into an array
+arr1 = np.array(arr)
+#assign array to variable var
+val= arr1[r,c]
+
+print("\nThe cell value is:")
+print(val)
+
